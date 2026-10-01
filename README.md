@@ -78,4 +78,6 @@ GitHub Pages: https://phofan.github.io/kr1-html-css-shop/
 - переменные для цветов и скруглений;
 - состояния `:hover`, `:focus-visible`, `:disabled`;
 - визуальная подсветка ошибочных полей через `aria-invalid`;
-- структурированный файл `css/style.css`.
+- структурированный файл `css/style.css`;
+- базовое БЭМ-именование классов в карточках товаров;
+- базовое позиционирование элементов (`relative`, `absolute`, `fixed`).
