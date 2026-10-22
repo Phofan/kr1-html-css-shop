@@ -67,7 +67,11 @@ html {
    =============================== */
 
 .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 90;
   background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .site-header__inner {
@@ -251,6 +255,15 @@ a:focus-visible {
   border-color: var(--color-danger);
 }
 
+.product-card--new {
+  border-color: var(--color-success);
+}
+
+.product-card--out-of-stock {
+  border-style: dashed;
+  opacity: 0.75;
+}
+
 .product-card__title {
   margin: 0;
   color: var(--color-text);
@@ -270,6 +283,10 @@ a:focus-visible {
   color: var(--color-danger);
 }
 
+.product-card--new .product-card__price {
+  color: var(--color-success);
+}
+
 .product-card__button {
   margin-top: auto;
   align-self: flex-start;
@@ -284,6 +301,14 @@ a:focus-visible {
   color: var(--color-white);
   border-radius: var(--radius-sm);
   font-size: 0.85em;
+}
+
+.product-card__badge--discount {
+  background-color: var(--color-danger);
+}
+
+.product-card__badge--new {
+  background-color: var(--color-success);
 }
 
 .aside-info {
@@ -310,7 +335,7 @@ a:focus-visible {
 .catalog-filters {
   grid-area: filters;
   position: sticky;
-  top: var(--space-md);
+  top: 120px;
   align-self: start;
   padding: var(--space-md);
   border: 1px solid var(--color-border);
@@ -470,12 +495,15 @@ a:focus-visible {
   padding: var(--space-sm) var(--space-md);
   background-color: var(--color-primary);
   color: var(--color-white);
+  font-weight: 700;
   border: none;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   text-decoration: none;
 }
 
 .scroll-top:hover {
+  color: var(--color-white);
   background-color: var(--color-primary-dark);
 }
