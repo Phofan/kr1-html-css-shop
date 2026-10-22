@@ -102,6 +102,79 @@
       </div>
     </section>
 
+    <section class="section" id="reviews">
+      <h2 class="section__title">Отзывы покупателей</h2>
+
+      <div class="reviews">
+        <article class="review-card">
+          <div class="review-card__header">
+            <h3 class="review-card__author">Алексей Смирнов</h3>
+            <span class="review-card__rating" aria-label="Оценка 5 из 5">★★★★★</span>
+          </div>
+          <p class="review-card__text">
+            Отличный магазин! Быстро оформил заявку через форму, менеджер перезвонил в течение 15 минут.
+          </p>
+          <time class="review-card__date" datetime="2026-10-10">10 октября 2026</time>
+        </article>
+
+        <article class="review-card">
+          <div class="review-card__header">
+            <h3 class="review-card__author">Мария Иванова</h3>
+            <span class="review-card__rating" aria-label="Оценка 5 из 5">★★★★★</span>
+          </div>
+          <p class="review-card__text">
+            Заказывала Товар 1 по акции. Качество полностью соответствует описанию и таблице характеристик.
+          </p>
+          <time class="review-card__date" datetime="2026-10-12">12 октября 2026</time>
+        </article>
+
+        <article class="review-card">
+          <div class="review-card__header">
+            <h3 class="review-card__author">Дмитрий Козлов</h3>
+            <span class="review-card__rating" aria-label="Оценка 4 из 5">★★★★☆</span>
+          </div>
+          <p class="review-card__text">
+            Удобный каталог с фильтрами и понятная навигация по сайту. Доставили точно в выбранную дату.
+          </p>
+          <time class="review-card__date" datetime="2026-10-14">14 октября 2026</time>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <h2 class="section__title">Часто задаваемые вопросы</h2>
+
+      <div class="faq">
+        <details class="faq__item" open>
+          <summary class="faq__question">Как оформить заказ на сайте?</summary>
+          <p class="faq__answer">
+            Нажмите кнопку «Заказать» в карточке товара, чтобы открыть модальное окно, либо перейдите на страницу «Заявка» в верхнем меню.
+          </p>
+        </details>
+
+        <details class="faq__item">
+          <summary class="faq__question">Какие способы доставки доступны?</summary>
+          <p class="faq__answer">
+            Доступна курьерская доставка по Москве и отправка в пункты выдачи заказов по всей России.
+          </p>
+        </details>
+
+        <details class="faq__item">
+          <summary class="faq__question">Есть ли гарантия на товары?</summary>
+          <p class="faq__answer">
+            Да, на все товары предоставляется официальная гарантия от 12 до 24 месяцев в зависимости от выбранного тарифа.
+          </p>
+        </details>
+
+        <details class="faq__item">
+          <summary class="faq__question">Можно ли получить консультацию перед покупкой?</summary>
+          <p class="faq__answer">
+            Да, в форме заявки выберите тему «Консультация», и специалист ответит на все вопросы.
+          </p>
+        </details>
+      </div>
+    </section>
+
     <aside class="aside-info">
       <h2 class="aside-info__title">Информация для студентов</h2>
       <p class="aside-info__text">
@@ -120,81 +193,104 @@
   <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
     <h2 class="order-dialog__title" id="order-dialog-title">Оформление заявки</h2>
 
-    <form class="order-form" id="order-form" action="#" method="post" novalidate>
+    <form class="order-form" id="order-form" action="#" method="post" aria-describedby="order-form-note" novalidate>
+      <p class="order-form__note" id="order-form-note">
+        Поля, отмеченные <span class="order-form__required" aria-hidden="true">*</span>, обязательны для заполнения.
+      </p>
+
       <input id="selected-product" name="selected-product" type="hidden">
 
-      <div class="order-form__field">
-        <label class="order-form__label" for="order-name">Имя</label>
-        <input
-          class="order-form__input"
-          id="order-name"
-          name="name"
-          type="text"
-          placeholder="Введите ваше имя"
-          minlength="2"
-          autocomplete="given-name"
-          required
-        >
-      </div>
+      <fieldset class="order-form__fieldset">
+        <legend class="order-form__legend">Контактные данные</legend>
 
-      <div class="order-form__field">
-        <label class="order-form__label" for="order-email">E-mail</label>
-        <input
-          class="order-form__input"
-          id="order-email"
-          name="email"
-          type="email"
-          placeholder="example@mail.ru"
-          autocomplete="email"
-          required
-        >
-      </div>
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-name">
+            Имя <span class="order-form__required" aria-hidden="true">*</span>
+          </label>
+          <input
+            class="order-form__input"
+            id="order-name"
+            name="name"
+            type="text"
+            placeholder="Введите ваше имя"
+            minlength="2"
+            autocomplete="given-name"
+            aria-describedby="order-name-hint"
+            required
+          >
+          <small class="order-form__hint" id="order-name-hint">Минимум 2 символа</small>
+        </div>
 
-      <div class="order-form__field">
-        <label class="order-form__label" for="order-phone">Телефон</label>
-        <input
-          class="order-form__input"
-          id="order-phone"
-          name="phone"
-          type="tel"
-          inputmode="tel"
-          placeholder="+7 (900) 000-00-00"
-          pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$"
-          required
-        >
-        <small class="order-form__hint">Формат: +7 (900) 000-00-00</small>
-      </div>
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-email">
+            E-mail <span class="order-form__required" aria-hidden="true">*</span>
+          </label>
+          <input
+            class="order-form__input"
+            id="order-email"
+            name="email"
+            type="email"
+            placeholder="example@mail.ru"
+            autocomplete="email"
+            required
+          >
+        </div>
 
-      <div class="order-form__field">
-        <label class="order-form__label" for="order-date">Дата связи</label>
-        <input
-          class="order-form__input"
-          id="order-date"
-          name="date"
-          type="date"
-        >
-      </div>
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-phone">
+            Телефон <span class="order-form__required" aria-hidden="true">*</span>
+          </label>
+          <input
+            class="order-form__input"
+            id="order-phone"
+            name="phone"
+            type="tel"
+            inputmode="tel"
+            placeholder="+7 (900) 000-00-00"
+            pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$"
+            aria-describedby="order-phone-hint"
+            required
+          >
+          <small class="order-form__hint" id="order-phone-hint">Формат: +7 (900) 000-00-00</small>
+        </div>
+      </fieldset>
 
-      <div class="order-form__field">
-        <label class="order-form__label" for="order-topic">Тема заявки</label>
-        <select class="order-form__select" id="order-topic" name="topic" required>
-          <option value="">Выберите тему</option>
-          <option value="product">Заказ товара</option>
-          <option value="consultation">Консультация</option>
-          <option value="delivery">Доставка</option>
-        </select>
-      </div>
+      <fieldset class="order-form__fieldset">
+        <legend class="order-form__legend">Детали заявки</legend>
 
-      <div class="order-form__field">
-        <label class="order-form__label" for="order-comment">Комментарий</label>
-        <textarea
-          class="order-form__textarea"
-          id="order-comment"
-          name="comment"
-          rows="4"
-          placeholder="Укажите дополнительную информацию"
-        ></textarea>
-      </div>
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-date">Дата связи</label>
+          <input
+            class="order-form__input"
+            id="order-date"
+            name="date"
+            type="date"
+          >
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-topic">
+            Тема заявки <span class="order-form__required" aria-hidden="true">*</span>
+          </label>
+          <select class="order-form__select" id="order-topic" name="topic" required>
+            <option value="">Выберите тему</option>
+            <option value="product">Заказ товара</option>
+            <option value="consultation">Консультация</option>
+            <option value="delivery">Доставка</option>
+          </select>
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-comment">Комментарий</label>
+          <textarea
+            class="order-form__textarea"
+            id="order-comment"
+            name="comment"
+            rows="4"
+            placeholder="Укажите дополнительную информацию"
+          ></textarea>
+        </div>
+      </fieldset>
 
       <div class="order-form__field order-form__field--checkbox">
         <label class="order-form__checkbox-label">
@@ -205,7 +301,7 @@
             type="checkbox"
             required
           >
-          Я согласен на обработку данных
+          Я согласен на обработку данных <span class="order-form__required" aria-hidden="true">*</span>
         </label>
       </div>
 
@@ -216,7 +312,7 @@
     </form>
   </dialog>
 
-  <p class="success-message" id="success-message" hidden>
+  <p class="success-message" id="success-message" role="status" aria-live="polite" hidden>
     Форма успешно отправлена!
   </p>
 

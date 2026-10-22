@@ -404,6 +404,99 @@ a:focus-visible {
   background-color: var(--color-surface);
 }
 
+.product-table tbody tr:nth-child(even) {
+  background-color: var(--color-surface);
+}
+
+.product-table tbody tr:hover {
+  background-color: var(--color-surface-accent);
+}
+
+.product-table tfoot td {
+  font-weight: 700;
+  background-color: var(--color-surface-accent);
+}
+
+.reviews {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+.review-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg);
+}
+
+.review-card:hover {
+  border-color: var(--color-primary);
+}
+
+.review-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.review-card__author {
+  margin: 0;
+  font-size: 16px;
+}
+
+.review-card__rating {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.review-card__text {
+  margin: 0;
+  color: var(--color-text);
+}
+
+.review-card__date {
+  margin-top: auto;
+  font-size: 14px;
+  color: var(--color-muted);
+}
+
+.faq {
+  display: grid;
+  gap: var(--space-sm);
+}
+
+.faq__item {
+  padding: var(--space-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg);
+}
+
+.faq__item[open] {
+  border-color: var(--color-primary);
+  background-color: var(--color-surface-accent);
+}
+
+.faq__question {
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.faq__question:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+.faq__answer {
+  margin: var(--space-sm) 0 0;
+  color: var(--color-muted);
+}
+
 /* ===============================
    6. Форма и модальное окно
    =============================== */
@@ -421,6 +514,29 @@ a:focus-visible {
 
 .order-dialog__title {
   margin-top: 0;
+}
+
+.order-form__note {
+  margin: 0 0 var(--space-md);
+  font-size: 14px;
+  color: var(--color-muted);
+}
+
+.order-form__fieldset {
+  margin: 0 0 var(--space-md);
+  padding: var(--space-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+.order-form__legend {
+  padding: 0 var(--space-xs);
+  font-weight: 700;
+}
+
+.order-form__required {
+  color: var(--color-danger);
+  font-weight: 700;
 }
 
 .order-form__field {
